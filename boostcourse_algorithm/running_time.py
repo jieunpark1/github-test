@@ -156,3 +156,51 @@ ll_.pop() #tail을 앞 주솟값으로 포인팅
 ll_.popleft() #head가 뒤로 이동
 
 ll_[3] #접근 - random access 불가. head로부터 주소를 3번 넘어가야함.
+
+
+#queue -> 응용이 더 중요!
+#선입선출
+
+#enqueue - 큐의 맨 뒤에 데이터 넣는 것
+#dequeue - 큐의 맨 앞의 데이터를 빼는 것
+
+#리스트를 큐로 -> .pop(0) => 뒤에 있는걸 하나하나 다 옮겨야 하므로 dequeue 시 O(n)
+#리스트로 큐를 써도 되지만 디큐시 시간복잡도가 오래걸린다.
+
+
+#linked list deque 사용
+#append로 추가
+#popleft로 front(head)가 다음 노드의 주소값으로 -> O(1)
+## **deque(덱)** 를 많이 사용할 예정이므로 아래 코드 잘 알아두기!!
+
+"""
+from collections import deque
+queue = deque() #비어있는 큐 생성 # []
+
+#insert => O(1)
+queue.append(1) # [1]
+queue.append(4) # [1, 4]
+
+#pop => O(1)
+queue.popleft() #FIFO => #[4]
+
+
+
+#queue가 빌 때까지 dequeue() 하기
+
+print(queue)
+while queue:
+    queue.popleft()
+    print(queue)
+print(queue)
+    
+
+#활용 방법
+## 그래프의 BFS -> 단독으로 큐가 나오는 경우는 별로 없음.
+## 반대로, stack은 단독으로 나올 수 있음
+
+
+"""
+
+
+#Stack 자료구조
